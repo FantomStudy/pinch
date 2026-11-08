@@ -4,12 +4,13 @@ The plan of work for Pinch. Each step ends in a working state that can be deploy
 
 ## MVP
 
-### 0. Groundwork — `chore/groundwork`
+### 0. Groundwork — `chore/prepare`
 
 - [x] Restyled map on screen (`public/map-style.json`, `Atlas`, MapLibre worker fix)
 - [x] Decisions, privacy rules and git flow written into CLAUDE.md
 - [x] `photos/` in `.gitignore`
-- [ ] Choose hosting (Vercel or Void) and deploy the current map, auto-deploy on push to `master`
+- [x] Choose hosting — Vercel
+- [x] Deploy the current map, auto-deploy on push to `master`, preview deploys for PRs
 
 ### 1. Data and photos — `feat/photo-pipeline`
 

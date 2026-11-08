@@ -108,4 +108,4 @@ Settled choices go here with a one-line reason, so they aren't re-argued.
 - **Fonts: chosen on a real memory card with a real photo**, self-hosted. Candidates — titles: Cormorant Garamond, Lora, Playfair Display; UI: Inter, Onest, Manrope.
 - **Lightbox: MVP has open/close transition, paging and dismiss; zoom & pan right after MVP.**
 - **UI language: Russian only**, no i18n for now.
-- _Open: hosting — Vercel or Void (Cloudflare); decide at the first deploy._
+- **Hosting: Vercel** — Git integration with a preview deploy for every PR fits the branch → PR flow; production deploys from `master`. Void (Cloudflare) is the candidate if a backend arrives.
