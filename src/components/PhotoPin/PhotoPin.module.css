@@ -1,0 +1,96 @@
+.pin {
+  --size: 52px;
+
+  position: relative;
+  display: grid;
+  width: var(--size);
+  height: var(--size);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: transform var(--duration-ui) var(--ease-out);
+}
+
+.photo {
+  --rest: none;
+  --fan: none;
+
+  grid-area: 1 / 1;
+  width: var(--size);
+  height: var(--size);
+  border: 3px solid white;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-photo-empty);
+  box-shadow: var(--shadow-pin);
+  transform: var(--rest);
+  transition:
+    transform var(--duration-ui) var(--ease-out),
+    box-shadow var(--duration-ui) var(--ease-out);
+}
+
+.photo[data-layer="1"] {
+  --rest: translate(6px, 2px) rotate(7deg);
+  --fan: translate(24px, -3px) rotate(14deg);
+}
+
+.photo[data-layer="2"] {
+  --rest: translate(-4px, 6px) rotate(-8deg);
+  --fan: translate(-24px, 1px) rotate(-14deg);
+}
+
+@media (hover: hover) {
+  .pin:hover {
+    transform: scale(1.06);
+  }
+
+  .pin:hover .photo {
+    transform: var(--fan);
+  }
+}
+
+.pin:focus-visible {
+  outline: none;
+}
+
+.pin:focus-visible .photo {
+  transform: var(--fan);
+}
+
+.pin:focus-visible .photo[data-layer="0"] {
+  box-shadow:
+    0 0 0 3px var(--color-ink),
+    var(--shadow-pin);
+}
+
+.pin:active {
+  transform: scale(0.97);
+}
+
+.pin[aria-pressed="true"] {
+  transform: scale(1.25);
+}
+
+.pin[aria-pressed="true"] .photo[data-layer="0"] {
+  box-shadow:
+    0 0 0 3px var(--color-terracotta),
+    var(--shadow-pin);
+}
+
+/* Маркеры лежат в DOM по порядку, поэтому выбранный пин и веер могут уйти под соседа */
+:global(.maplibregl-marker):has(.pin[aria-pressed="true"]) {
+  z-index: 1;
+}
+
+:global(.maplibregl-marker):has(.pin:hover, .pin:focus-visible) {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin,
+  .photo {
+    transition: none;
+  }
+}

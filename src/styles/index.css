@@ -1,2 +1,10 @@
 :root {
+  --color-ink: #3b2a2d;
+  --color-terracotta: #d16a4b;
+  --color-photo-empty: #edeae6;
+
+  --shadow-pin: 0 1px 2px rgb(59 42 45 / 0.18), 0 6px 16px -4px rgb(59 42 45 / 0.28);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-ui: 200ms;
 }
